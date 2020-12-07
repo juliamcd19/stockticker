@@ -1,6 +1,5 @@
 console.log("Hello");
 const MongoClient = require('mongodb').MongoClient;
-var http = require('http');
 var readline = require('readline');
 var fs = require('fs');
 var csvtojson = require("csvtojson");
@@ -32,12 +31,14 @@ function main()
  
 };
 
+var http = require('http');
+var port = process.env.PORT || 3000;
+console.log("This goes tot the console window")
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write  ("<html><head><style type='text/css'>.col {display: inline-block; width:40px; border: 1px solid #333;} </style></head>");
-  res.write("<body>Inserting<br />");
- res.end("</body></html>");
-}).listen(8080);
+  res.write("<h2>Inserting</h2>");
+ res.end();
+}).listen(port);
 
 
 
