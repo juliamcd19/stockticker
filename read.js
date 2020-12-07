@@ -13,26 +13,26 @@ const MongoClient = require('mongodb').MongoClient;
 var csvtojson = require("csvtojson");
 const url = "mongodb+srv://juliamcd19:ballup360@cluster0.tn5ll.mongodb.net/stma?retryWrites=true&w=majority";
 
-csvtojson()
-    .fromFile("companies-1.csv")
-    .then(csvData => {
-    console.log(csvData);
+// csvtojson()
+//     .fromFile("companies-1.csv")
+//     .then(csvData => {
+//     console.log(csvData);
 
-MongoClient.connect(url, function(err, db) {
-if(err) { return console.log(err); }
-console.log("into mongo");
+// MongoClient.connect(url, function(err, db) {
+// if(err) { return console.log(err); }
+// console.log("into mongo");
 
-    var dbo = db.db("stma");
-    var collection = dbo.collection('companies');
-    collection.insertMany(csvData, (err, res) => {
-        if (err) throw err;
+//     var dbo = db.db("stma");
+//     var collection = dbo.collection('companies');
+//     collection.insertMany(csvData, (err, res) => {
+//         if (err) throw err;
 
-    console.log(`Inserted: ${res.insertedCount} rows`);
-    db.close();
-    });
-  }
-);
-});   
+//     console.log(`Inserted: ${res.insertedCount} rows`);
+//     db.close();
+//     });
+//   }
+// );
+// });   
  
 
 
