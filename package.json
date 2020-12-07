@@ -1,0 +1,12 @@
+{
+        "name": "jmstockticker",
+        "version": "1.0.0",
+        "description": "stock ticker web app",
+        "main": "read.js",
+        "scripts": {
+                "starts": "node read.js"
+        },
+        "repository": {
+                "type": "git"
+        }
+}
