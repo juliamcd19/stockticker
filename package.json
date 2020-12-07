@@ -1,12 +1,19 @@
 {
-        "name": "jmstockticker",
-        "version": "1.0.0",
-        "description": "stock ticker web app",
-        "main": "read.js",
-        "scripts": {
-                "starts": "node read.js"
-        },
-        "repository": {
-                "type": "git"
-        }
+  "name": "jmstockticker",
+  "version": "1.0.0",
+  "description": "node app",
+  "main": "read.js",
+  "scripts": {
+  "start": "node read.js"
+},
+  "repository": {
+  "type": "git",
+  "url": ""
+},
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+  "url": ""
+},
+  "homepage": ""
 }
