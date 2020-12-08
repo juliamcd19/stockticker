@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stock Tickers</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: #99B9FF;
+            font-family: "Georgia";
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Stock Ticker Form</h1>
+    <hr size="10" color="black">
+    <h3>Enter stocker ticker or company name to see corresponding name or ticker</h3><br>
+    <form method='get' action='http://localhost:8080'>
+        <input type="radio" id="ticker" name="t_or_n" value="Ticker" checked>
+            <label>Stock Ticker</label>
+        <br>
+        <input type="radio" id="name" name="t_or_n" value="Company">
+            <label>Company Name</label>
+        <br><br>
+        <label>Input: </label>
+        <input type="text" name="uinput"> 
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br><br>
+    <hr size="40" color="black">
+
+</body>
+</html>
