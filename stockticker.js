@@ -10,13 +10,18 @@ http.createServer(function (req, res) {
   var qobj = url.parse(req.url, true).query;
   var choice = qobj.t_or_n;
   var input = qobj.uinput;
-  res.write("<p>" + Promise.resolve(doit(choice, input)) + "</p>"); 
-  res.end();
+  var promise = doit(choice, input);
+  promise.then(function(result) {
+    res.write("" + result);
+    res.end();
+  })
+  // res.write("" + doit(choice, input));
+  
 }).listen(8080);
 
-client =new MongoClient(murl,{ useUnifiedTopology: true });
 async function doit(uchoice, uinput) {
-var str= "";
+  client =new MongoClient(murl,{ useUnifiedTopology: true });
+  var str= "";
   try {
     await client.connect();
     var dbo = client.db("stma");
@@ -35,12 +40,14 @@ var str= "";
         query = {"Ticker": uinput};
     }
     const curs = coll.find(query, options);
+    console.log("post find");
     // PRINT IF NONE FOUND
     //await curs.forEach(console.dir);
+    str += "<p>";
     await curs.forEach(function(item){
         str += item.Company + ", " + item.Ticker +  "<br>";
-        console.log("for each");
     });
+    str += "</p>"
     console.log(str);
   } 
   catch(err) {
@@ -49,7 +56,7 @@ var str= "";
 }
   finally {
     client.close();
-    console.log("db closed");
+    return str;
   }
 }  //end doit
 
